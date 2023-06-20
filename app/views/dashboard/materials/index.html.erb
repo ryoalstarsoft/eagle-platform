@@ -1,0 +1,24 @@
+<%- title 'Material Management' %>
+
+<%= render 'dashboard/page_header' %>
+
+<div class="container-fluid page__container">
+  <div class="row">
+    <div class="col-lg">
+      <div class="card">
+        <div class="card-header card-header-large bg-white">
+          <h4 class="card-header__title">Material Types</h4>
+        </div>
+        <div class="card-header">
+          <form class="form-inline">
+            <div class="search-form search-form--light w-100">
+              <input name="material_name" type="text" class="form-control search w-100" placeholder="Search">
+              <button class="btn" type="button" role="button"><i class="material-icons">search</i></button>
+            </div>
+          </form>
+        </div>
+        <%= render 'materials.table' %>
+      </div>
+    </div>
+  </div>
+</div>

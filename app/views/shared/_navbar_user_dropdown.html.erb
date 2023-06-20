@@ -1,0 +1,20 @@
+<ul class="nav navbar-nav d-none d-sm-flex border-left navbar-height align-items-center">
+  <li class="nav-item dropdown">
+    <a href="#account_menu" class="nav-link dropdown-toggle" data-toggle="dropdown" data-caret="false">
+      <img src="<%= image_path('avatar/demi.png')%>" class="rounded-circle" width="32" alt="Frontted">
+      <span class="ml-1 d-flex-inline">
+        <span class="text-light"><%= current_user.short_name %></span>
+      </span>
+    </a>
+    <div id="account_menu" class="dropdown-menu dropdown-menu-right">
+      <div class="dropdown-item-text dropdown-item-text--lh">
+        <div><strong><%= current_user.name %></strong></div>
+        <div><%= current_user.email %></div>
+      </div>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="<%= dashboard_path %>">My Dashboard</a>
+      <div class="dropdown-divider"></div>
+      <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+    </div>
+  </li>
+</ul>

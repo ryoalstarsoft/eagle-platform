@@ -1,0 +1,52 @@
+<div class="table-responsive border-bottom" data-toggle="lists" data-lists-values='["js-lists-values-employee-name"]'>
+  
+  <%# <div class="search-form search-form--light m-3">
+    <input type="text" class="form-control search" placeholder="Search">
+    <button class="btn" type="button" role="button"><i class="material-icons">search</i></button>
+  </div>
+   %>
+  <table class="table mb-0 thead-border-top-0">
+    <thead>
+      <tr>
+        <th>Truck Number</th>
+        <th>Ownership</th>
+        <th>Status</th>
+        <th>Last Activity</th>
+        <th>All Time Earnings</th>
+        <th>Next Maintance</th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody class="list" id="blah">
+      <% @trucks.each do |truck| %>
+        <tr>
+          <td><strong><%= truck.number %></strong></td>
+          <td>
+            <% if truck.is_owned? %>
+              <span class="badge badge-primary"><%= current_vendor.short_name.upcase %></span>
+            <% else %>  
+              <span class="badge badge-light">INDIE</span>
+            <% end %>
+          </td>
+          <td>
+            <% if truck.is_active? %>
+              <span class="badge badge-success">ACTIVE</span>
+            <% else %>  
+              <span class="badge badge-warning">INACTIVE</span>
+            <% end %>
+          </td>
+          <td><small class="text-muted"><%= f_time_ago(truck.last_activity_date) %></small></td>
+          <td><%= f_money(truck.all_time_earnings) %></td>
+          <td><%= f_date(truck.next_maintenance_date) %></td>
+          <td class="text-right">
+            <%= render 'dashboard/object_actions', object: truck %>
+          </td>
+        </tr>
+      <% end %>
+
+    </tbody>
+  </table>
+</div>
+
+<%= render 'shared/pagination', collection: @trucks %>
+

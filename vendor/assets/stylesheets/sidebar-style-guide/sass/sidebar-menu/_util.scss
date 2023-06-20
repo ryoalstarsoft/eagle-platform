@@ -1,0 +1,57 @@
+// icon sizing
+.sm-icons-1 .sidebar-menu-icon {
+  font-size: 1rem;
+}
+.sm-icons-small .sidebar-menu-icon {
+  font-size: .875rem;
+}
+
+// condensed menu items
+.sm-condensed > .sidebar-menu-item > .sidebar-menu-button {
+  line-height: $sm-condensed-button-height;
+}
+// condensed submenu items
+.sm-condensed.sidebar-submenu > .sidebar-menu-item > .sidebar-menu-button {
+  line-height: $ssm-condensed-button-height;
+}
+
+// bordered menu
+.sm-bordered {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+}
+
+// bordered menu item
+.sm-item-bordered {
+  > .sidebar-menu-item {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+  }
+  > .sidebar-menu-item:last-of-type {
+    border-bottom: none;
+  }
+  .sidebar-submenu {
+    border-bottom: none;
+  }
+}
+
+// icons block
+.sm-icons-block > .sidebar-menu-item > .sidebar-menu-button .sidebar-menu-icon {
+  text-align: center;
+  display: inline-block;
+  height: $sm-iconsblock-width;
+  line-height: $sm-iconsblock-width;
+  width: $sm-iconsblock-width;
+}
+
+// icons block + submenu
+.sm-icons-block.sidebar-submenu > .sidebar-menu-item > .sidebar-menu-button .sidebar-menu-icon {
+  height: $ssm-iconsblock-width;
+  line-height: $ssm-iconsblock-width;
+  width: $ssm-iconsblock-width;
+}
+
+// increase sidebar menu buttons horizontal spacing
+.sm-indent > .sidebar-menu-item .sidebar-menu-button {
+  padding-left: $sm-button-spacing-x * 2;
+}

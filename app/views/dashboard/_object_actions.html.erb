@@ -1,0 +1,8 @@
+<% base_url = "/dashboard/#{object.class.name.downcase.pluralize}/#{object.id}" %>
+<a href="" class="text-muted dropdown-toggle" data-toggle="dropdown" data-caret="false">
+  <i class="material-icons">more_vert</i>
+</a>
+<div class="dropdown-menu dropdown-menu-right">
+  <%= link_to "Edit", "#{base_url}/edit", class: "dropdown-item" %>
+  <%= link_to "Delete", "#{base_url}", class: "dropdown-item", method: :delete %>
+</div>

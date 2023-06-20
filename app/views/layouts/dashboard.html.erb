@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%= render 'layouts/head' %>
+    <%= content_for :header_scripts %>
+    <%= stylesheet_link_tag 'dashboard', media: 'all' %>
+  </head>
+
+  <body class="<%= @body_class || 'layout-default' %> <%= controller_name %> <%= action_name %>">
+    <!-- Header Layout -->
+    <div class="mdk-header-layout js-mdk-header-layout">
+      <!-- Header -->
+      <%= render 'shared/navbar'%>
+      <!-- // END Header -->
+
+
+      <!-- Header Layout Content -->
+      <div class="mdk-header-layout__content">
+
+        <div class="mdk-drawer-layout js-mdk-drawer-layout" data-push data-responsive-width="992px">
+          <div class="mdk-drawer-layout__content page">
+
+            <%# CONTENT  %>
+            <%= yield %>
+
+          </div>
+          <!-- // END drawer-layout__content -->
+
+          <%= render 'dashboard/drawer_left' %>
+        </div>
+        <!-- // END drawer-layout -->
+
+      </div>
+      <!-- // END header-layout__content -->
+
+    </div>
+    <!-- // END header-layout -->
+
+    <%= content_for :footer %>
+
+    <%= javascript_include_tag 'dashboard' %>
+
+    <%= content_for :footer_scripts %>
+  </body>
+</html>

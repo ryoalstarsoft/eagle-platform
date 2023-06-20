@@ -1,0 +1,38 @@
+<div class="table-responsive border-bottom" data-toggle="lists" data-lists-values='["js-lists-values-employee-name"]'>
+  
+  <% <div class="search-form search-form--light m-3">
+    <input type="text" class="form-control search" placeholder="Search">
+    <button class="btn" type="button" role="button"><i class="material-icons">search</i></button>
+  </div>
+   %>
+  <table class="table mb-0 thead-border-top-0">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>E-mail</th>
+        <th>Phone</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody class="list" id="blah">
+      <% (0..50).each do |i| %>
+        <tr>
+          <td><strong><%= Faker::Company.name %></strong></td>
+          <td><a href="#"><%= Faker::Internet.email %></a></td>
+          <td><%= Faker::PhoneNumber.cell_phone %></td>
+          <td></td>
+          <td class="text-right dropdown">
+            <a href="" class="text-muted dropdown-toggle" data-toggle="dropdown" data-caret="false"><i class="material-icons">more_vert</i></a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a class="dropdown-item" href="#">Edit</a>
+              <a class="dropdown-item" href="#">Delete</a>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
+

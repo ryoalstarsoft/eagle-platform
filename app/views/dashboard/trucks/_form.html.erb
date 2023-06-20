@@ -1,0 +1,30 @@
+<% is_create_action = %w{new create}.include?(action_name) %>
+<%= simple_form_for @truck, url: is_create_action ? dashboard_trucks_path : dashboard_truck_path(@truck), html: { class: "", multipart: true } do |f| %>
+  <div class="card-body card-form__body">
+    <div class="form-group">
+      <label for="truckNumber">Truck Number</label>
+      <%= f.input :number, label: false, :input_html => { :class => 'form-control', id: "truckNumber" }, placeholder: "Enter a truck #{}" %>
+    </div>
+
+    <div class="form-group">
+      <label for="ownership">Ownership</label>
+      <%= f.input :is_owned, as: :select, collection: [['Demo Trucking', true], ['Independent', false]], label: false, :input_html => { :class => 'form-control', id: "ownership" }, prompt: '--Select--', selected: (@truck.is_owned.to_s rescue nil) %>
+    </div>
+
+    <div class="form-group">
+      <label for="truckStatus">Status</label><br>
+      <div class="custom-control custom-checkbox-toggle custom-control-inline mr-1">
+        <!-- <input name="truck[is_active]" checked='<%#= @truck.is_active? ? "checked" : false %> 'type="checkbox" id="truckStatus" class="custom-control-input" value="1"> -->
+        <%= check_box('truck', 'is_active', options = {
+checked: @truck.is_active, class: 'custom-control-input', id: 'truckStatus'}, checked_value = '1', unchecked_value =
+'0') %>
+        <%#= f.input :is_active, label: false, wrapper: false, :input_html => { :class => 'custom-control-input', id: "truckStatus", value: "1" } %>
+        <label class="custom-control-label" for="truckStatus">Active</label>
+      </div>
+      <label for="truckStatus" class="mb-0">Active</label>
+    </div>
+  </div>
+  <div class="card-footer">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+<% end %>

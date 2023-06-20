@@ -1,0 +1,23 @@
+
+<div id="header" class="mdk-header js-mdk-header m-0" data-fixed>
+  <div class="mdk-header__content">
+    <div class="navbar navbar-expand-sm navbar-main navbar-dark bg-dark pr-0" id="navbar" data-primary>
+      <div class="container-fluid p-0">
+        <!-- Navbar toggler -->
+        <button class="navbar-toggler navbar-toggler-right d-block d-md-none" type="button" data-toggle="sidebar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Brand -->
+        <a href="<%= root_path %>" class="navbar-brand">
+          <span class="navbar-brand-icon">
+          <span>HAUL</span>
+        </a>
+        
+        <%= render 'shared/navbar_notifications' %>
+        <%= render 'shared/navbar_user_dropdown' %>
+
+      </div>
+    </div>
+  </div>
+</div>

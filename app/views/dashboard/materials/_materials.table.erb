@@ -1,0 +1,30 @@
+<div class="table-responsive border-bottom" data-toggle="lists" data-lists-values='["js-lists-values-employee-name"]'>
+  <table class="table mb-0 thead-border-top-0">
+    <thead>
+      <tr>
+        <th>Material Name</th>
+        <th>Quarry</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody class="list" id="blah">
+      <% @material_types.each do |material_type| %>
+        <tr>
+          <td><strong><%= material_type.name.capitalize %></strong></td>
+          <td>
+            <%= material_type.suppliers.map{|s| link_to(s.name, dashboard_supplier_path(s)) }.join(', ').html_safe %>
+          </td>
+          <td></td>
+          <td class="text-right dropdown">
+            <a href="" class="text-muted dropdown-toggle" data-toggle="dropdown" data-caret="false"><i class="material-icons">more_vert</i></a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a class="dropdown-item" href="#">Edit</a>
+              <a class="dropdown-item" href="#">Delete</a>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<%= render 'shared/pagination', collection: @material_types %>

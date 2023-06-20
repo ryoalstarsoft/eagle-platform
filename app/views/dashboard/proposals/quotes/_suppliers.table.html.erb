@@ -1,0 +1,31 @@
+<div class="table-responsive border-bottom" data-toggle="lists" data-lists-values='["js-lists-values-employee-name"]'>
+  <table class="table mb-0 thead-border-top-0">
+    <thead>
+      <tr>
+        <th>Supplier</th>
+        <th>State</th>
+        <th>City</th>
+        <th>Phone</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody class="list" id="blah">
+      <% @suppliers.each do |supplier| %>
+        <tr>
+          <td><strong><%= link_to supplier.name, dashboard_supplier_path(supplier)  %></strong></td>
+          <td><%= supplier.state %></td>
+          <td><%= supplier.city %></td>
+          <td><%= f_phone supplier.phone_number %></td>
+          <td></td>
+          <td class="text-right dropdown">
+            <a href="" class="text-muted dropdown-toggle" data-toggle="dropdown" data-caret="false"><i class="material-icons">more_vert</i></a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a class="dropdown-item" href="#">Edit</a>
+              <a class="dropdown-item" href="#">Delete</a>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

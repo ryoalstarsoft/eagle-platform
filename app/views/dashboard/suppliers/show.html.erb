@@ -1,0 +1,60 @@
+<%- title @supplier.name %>
+
+<%= render 'dashboard/page_header' %>
+
+<div class="container-fluid page__container">
+  <div class="row">
+    <div class="col-lg">
+      <div class="card">
+        <div class="card-header card-header-large bg-white d-flex align-items-center">
+          <h4 class="card-header__title flex m-0">Information</h4>
+          <%= link_to '<i class="material-icons mr-1">edit</i>'.html_safe, edit_dashboard_supplier_path(@supplier), class: "btn btn-primary p-0 pl-1" %>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg">
+            <h5><%= @supplier.name %></h5>
+            <ul class="list-unstyled">
+              <li><strong>Address:</strong> <%= @supplier.address %></li>
+              <li><span "style="padding-left: 55px">&nbsp;</span> <%= @supplier.city %>, <%= @supplier.state %> <%= @supplier.zip_code %></li>
+              <li><strong>Phone:</strong> <%= f_phone @supplier.phone_number %></li>
+              <li><strong>Email:</strong> <%= @supplier.email %></li>
+            </ul>
+            
+            </div>
+            <div class="col-lg">
+              <div id='map' class="w-100">
+              </div>
+
+              <script>
+              mapboxgl.accessToken = 'pk.eyJ1IjoiamFzb25hc3Ryb2lkIiwiYSI6ImNqcnh5aTM4NjBzbXM0NG84M3hsa21pN20ifQ.QFUGKDvxJ6vB6foacTSiAA';
+              var map = new mapboxgl.Map({
+              container: 'map',
+              style: 'mapbox://styles/mapbox/streets-v11'
+              });
+              </script>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg">
+      <div class="card">
+        <div class="card-header card-header-large bg-white d-flex align-items-center">
+          <h4 class="card-header__title flex m-0">Materials</h4>
+          <%= link_to '<i class="material-icons mr-1">add</i>'.html_safe, new_dashboard_supplier_material_path(@supplier), class: "btn btn-primary p-0 pl-1" %>
+        </div>
+        <%= render 'materials.table' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for :header_scripts do %>
+<% end %>
+
+<% content_for :footer_scripts do %>
+<% end %>

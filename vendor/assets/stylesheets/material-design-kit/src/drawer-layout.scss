@@ -1,0 +1,51 @@
+.mdk-drawer-layout {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  
+  &--fullbleed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .mdk-drawer {
+    position: relative;
+    &[data-persistent] {
+      width: $mdk-drawer-width;
+      &[data-position=left] {
+        /*!rtl:remove*/
+        order: 0;
+        /*rtl:raw:
+        order: 2;
+        */
+      }
+      &[data-position=right] {
+        /*!rtl:remove*/
+        order: 2;
+        /*rtl:raw:
+        order: 0;
+        */
+      }
+    }
+  }
+}
+.mdk-drawer-layout__content {
+  position: relative;
+  height: 100%;
+  transition: transform 0.2s;
+  min-width: 320px;
+  z-index: 0;
+  order: 1;
+  flex: 1 1 0%;
+
+  // explicit CSS modifier
+  // intended for use with .mdk-drawer-layout[has-scrolling-region]
+  &--scrollable {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}

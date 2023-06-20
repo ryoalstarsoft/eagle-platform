@@ -1,0 +1,58 @@
+<div class="mdk-drawer js-mdk-drawer" id="default-drawer" data-align="start">
+  <div class="mdk-drawer__content">
+    <div class="sidebar sidebar-light sidebar-left simplebar" data-simplebar>
+      <div class="d-flex align-items-center sidebar-p-a border-bottom">
+        <a href="#" class="flex d-flex align-items-center text-body text-underline-0">
+          <span class="flex d-flex flex-column">
+            <strong><%#= current_user.name %></strong>
+            <small class="text-muted text-uppercase">Haul HQ Admin</small>
+          </span>
+        </a>
+        <div class="dropdown ml-auto">
+          <a href="#" data-toggle="dropdown" data-caret="false" class="text-muted"><i class="material-icons">more_vert</i></a>
+          <div class="dropdown-menu dropdown-menu-right">
+            <div class="dropdown-item-text dropdown-item-text--lh">
+              <div><strong><%= current_user.name %></strong></div>
+              <div><%= current_user.email %></div>
+            </div>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="<%= dashboard_path %>">Admin Dashboard</a>
+            <div class="dropdown-divider"></div>
+            <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-heading sidebar-m-t">Menu</div>
+      <div class="sidebar-block p-0">
+        <ul class="sidebar-menu">
+          <li class="sidebar-menu-item <%= active_nav_markup(:admin) %>">
+            <a class="sidebar-menu-button" href="<%= admin_dashboard_path %>">
+              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dvr</i>
+              <span class="sidebar-menu-text">Dashboard</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar-heading">Management</div>
+      <div class="sidebar-block p-0">
+        <ul class="sidebar-menu" id="components_menu">
+          <li class="sidebar-menu-item <%= active_nav_markup(:vendors) %>">
+            <a class="sidebar-menu-button" href="<%= admin_vendors_path %>">
+              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">contacts</i>
+              <span class="sidebar-menu-text">Vendors</span>
+            </a>
+          </li>
+          <li class="sidebar-menu-item <%= active_nav_markup(:settings) %>">
+            <a class="sidebar-menu-button" href="<%= admin_settings_path %>">
+              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">settings</i>
+              <span class="sidebar-menu-text">Settings</span>
+              <%# <span class="badge badge-primary ml-auto">NEW</span> %>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

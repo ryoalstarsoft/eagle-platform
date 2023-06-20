@@ -1,0 +1,5 @@
+--color
+--require spec_helper
+--format Fuubar
+//--format html
+//--out reports/coverage_rpt_rspec.html

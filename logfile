@@ -1,0 +1,18 @@
+2019-01-29 13:24:11.227 EST [33176] FATAL:  database files are incompatible with server
+2019-01-29 13:24:11.227 EST [33176] DETAIL:  The data directory was initialized by PostgreSQL version 9.6, which is not compatible with this version 11.1.
+2019-01-29 12:36:15.281 CST [37012] LOG:  could not bind IPv4 address "127.0.0.1": Address already in use
+2019-01-29 12:36:15.281 CST [37012] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2019-01-29 12:36:15.281 CST [37012] LOG:  could not bind IPv6 address "::1": Address already in use
+2019-01-29 12:36:15.281 CST [37012] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2019-01-29 12:36:15.281 CST [37012] WARNING:  could not create listen socket for "localhost"
+2019-01-29 12:36:15.281 CST [37012] FATAL:  could not create any TCP/IP sockets
+2019-01-29 12:36:15.281 CST [37012] LOG:  database system is shut down
+2019-01-29 12:56:58.198 CST [38289] FATAL:  lock file "postmaster.pid" already exists
+2019-01-29 12:56:58.198 CST [38289] HINT:  Is another postmaster (PID 38122) running in data directory "/usr/local/var/postgres"?
+2019-01-29 12:58:02.695 CST [38675] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-01-29 12:58:02.695 CST [38675] LOG:  listening on IPv6 address "::1", port 5432
+2019-01-29 12:58:02.696 CST [38675] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2019-01-29 12:58:02.712 CST [38676] LOG:  database system was shut down at 2019-01-29 12:57:53 CST
+2019-01-29 12:58:02.717 CST [38675] LOG:  database system is ready to accept connections
+2019-01-29 12:58:14.758 CST [38747] FATAL:  role "postgres" does not exist
+2019-01-29 12:58:47.728 CST [38896] FATAL:  role "postgres" does not exist

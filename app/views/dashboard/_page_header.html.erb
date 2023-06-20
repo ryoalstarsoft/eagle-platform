@@ -1,0 +1,17 @@
+<div class="container-fluid page__heading-container">
+  <div class="page__heading d-flex align-items-center">
+    <div class="flex">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page"><%= content_for?(:title) ? content_for(:title) : controller_name %></li>
+        </ol>
+      </nav>
+      <h1 class="m-0" style="text-transform: capitalize"><%= content_for?(:title) ? content_for(:title) : action_name.to_s %></h1>
+    </div>
+    <% if show_action(:add_truck) %>
+      <a href="<%= new_dashboard_supplier_path %>" class="btn btn-success ml-3"><i class="material-icons mr-1">add</i>Add</a>
+    <% end %>
+  </div>
+  <%= flash_messages %>
+</div>

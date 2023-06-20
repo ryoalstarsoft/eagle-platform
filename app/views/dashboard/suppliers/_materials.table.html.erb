@@ -1,0 +1,35 @@
+<div class="table-responsive border-bottom" data-toggle="lists" data-lists-values='["js-lists-values-employee-name"]'>
+  <table class="table mb-0 thead-border-top-0">
+    <thead>
+      <tr>
+        <th>Material Name</th>
+        <th>Ton</th>
+        <th>Yard</th>
+        <th>Load</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody class="list" id="blah">
+      <% @materials.each do |material| %>
+        <tr>
+          <td><strong><%= material.name %></strong></td>
+          <td>
+            <%= editable_link :cost_ton, material, dashboard_supplier_material_path(@supplier, material), formatter: :f_money %>
+          </td> 
+          <td>
+            <%= editable_link :cost_yard, material, dashboard_supplier_material_path(@supplier, material) ,formatter: :f_money %>
+          <td>
+            <%= editable_link :cost_load, material, dashboard_supplier_material_path(@supplier, material) ,formatter: :f_money %>
+          </td> 
+          <td class="text-right dropdown">
+            <a href="" class="text-muted dropdown-toggle" data-toggle="dropdown" data-caret="false"><i class="material-icons">more_vert</i></a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <%= link_to "Edit", edit_dashboard_supplier_material_path(@supplier, material), class: "dropdown-item" %>
+              <%= link_to "Delete", dashboard_supplier_material_path(@supplier, material), class: "dropdown-item", method: :delete %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

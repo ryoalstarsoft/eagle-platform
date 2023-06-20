@@ -1,0 +1,43 @@
+<% is_create_action = %w{new create}.include?(action_name) %>
+<%= simple_form_for @supplier, url: is_create_action ? dashboard_suppliers_path : dashboard_supplier_path(@supplier), html: { class: "", multipart: true } do |f| %>
+  <div class="card-body card-form__body">
+    <div class="form-group">
+      <label for="quarryName">Quarry Name</label>
+      <%= f.input :name, label: false, :input_html => { :class => 'form-control', id: "quarryName" }, placeholder: "Enter a Quarry name" %>
+    </div>
+
+    <div class="form-group">
+      <label for="quarryEmail">Email</label>
+      <%= f.input :email, label: false, :input_html => { :class => 'form-control', id: "quarryEmail" }, placeholder: "Enter an email" %>
+    </div>
+
+    <div class="form-group">
+      <label for="quarryAddressLine1">Address Line 1:</label>
+      <%= f.input :address, label: false, :input_html => { :class => 'form-control', id: "quarryAddressLine1" }, placeholder: "ie. 1234 quarry lane" %>
+    </div>
+    <div class="form-group">
+      <label for="quarryAddressLine2">Address Line 2:</label>
+      <%= f.input :address2, label: false, :input_html => { :class => 'form-control', id: "quarryAddressLine2" }, placeholder: "" %>
+    </div>
+    <div class="form-group">
+      <label for="quarryAddressCity">City</label>
+      <%= f.input :city, label: false, :input_html => { :class => 'form-control', id: "quarryAddressCity" }, placeholder: "" %>
+    </div>
+    <div class="form-group">
+      <label for="quarryStateSelect">State</label>
+      <%= f.input :state, as: :select, collection: state_array, label: false, :input_html => { :class => 'form-control', id: "quarryStateSelect" }, prompt: '-- Choose One --', selected: @supplier.state %>
+    </div>
+    <div class="form-group">
+      <label for="quarryAddressZip">Zip Code</label>
+      <%= f.input :zip_code, label: false, :input_html => { :class => 'form-control', id: "quarryAddressZip" }, placeholder: "" %>
+    </div>
+    <div class="form-group">
+      <label for="quarryPhone">Phone Number:</label>
+      <input type="input" name="supplier[phone_number" class="form-control" id="quarryPhone" placeholder="(000) 000-0000" data-mask="(000) 000-0000"
+        autocomplete="off" maxlength="14" data-com.agilebits.onepassword.user-edited="yes" value="<%= @supplier.phone_number[2..-1] %>">
+    </div>
+  </div>
+  <div class="card-footer">
+    <button type="submit" class="btn btn-primary">Update</button>
+  </div>
+<% end %>

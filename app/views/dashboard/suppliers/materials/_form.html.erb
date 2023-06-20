@@ -1,0 +1,31 @@
+<% is_create_action = %w{new create}.include?(action_name) %>
+<%= simple_form_for @material, url: is_create_action ? dashboard_supplier_materials_path(@supplier) : dashboard_supplier_material_path(@supplier, @material), html: { class: "" } do |f| %>
+  <div class="card-body card-form__body">
+    <% if is_create_action %>
+      <div class="form-group">
+        <label for="materialTypeSelect">Material Type</label>
+        <%= f.input :material_type_id, as: :select, collection: MaterialType.all, label_method: :name, value_method: :id, label: false, class: "form-control", prompt: '-- Select a Material Type --', selected: (@item.category.id rescue nil) %>
+      </div>
+    <% else %>
+      <div class="form-group">
+        <label for="materialTypeSelect">Material Type</label>
+        <h5><%= @material.name.capitalize %></h5>
+      </div>
+    <% end %>
+    <div class="form-group">
+      <label for="materialCostTon">Cost per Ton</label>
+      <%= f.input :cost_ton, label: false, :input_html => { :class => 'form-control', id: "materialCostTon" }, placeholder: "" %>
+    </div>
+    <div class="form-group">
+      <label for="materialCostYard">Cost per Yard</label>
+      <%= f.input :cost_yard, label: false, :input_html => { :class => 'form-control', id: "materialCostYard" }, placeholder: "" %>
+    </div>
+    <div class="form-group">
+      <label for="materialCostLoad">Cost per Load</label>
+      <%= f.input :cost_load, label: false, :input_html => { :class => 'form-control', id: "materialCostLoad" }, placeholder: "" %>
+    </div>
+  </div>
+  <div class="card-footer">
+    <button type="submit" class="btn btn-primary">Update</button>
+  </div>
+<% end %>

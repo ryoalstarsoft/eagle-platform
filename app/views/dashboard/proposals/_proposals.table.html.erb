@@ -1,0 +1,30 @@
+<div class="table-responsive border-bottom" data-toggle="lists" data-lists-values='["js-lists-values-employee-name"]'>
+  <table class="table mb-0 thead-border-top-0">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Job Name</th>
+        <th>Customer</th>
+        <th>Start Date</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody class="list" id="blah">
+      <% (0..21).each do %>
+        <tr class='clickable-row' data-href='url://'>
+          <td><%= rand(123..546) %></td>
+          <td><a href="#"><%= Faker::Company.name %></a></td> 
+          <td><%= Faker::Coffee.blend_name %></td> 
+          <td><%= Faker::Date.forward(23) %></td> 
+          <td class="text-right dropdown">
+            <a href="" class="text-muted dropdown-toggle" data-toggle="dropdown" data-caret="false"><i class="material-icons">more_vert</i></a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a class="dropdown-item" href="#">Edit</a>
+              <a class="dropdown-item" href="#">Delete</a>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,46 @@
+<%- title 'Material Management' %>
+
+<%= render 'dashboard/page_header' %>
+
+<div class="container-fluid page__container">
+  <div class="row">
+    <div class="col-lg-8 col-md-12">
+      <div class="card">
+        <div class="card-header card-header-large bg-white">
+          <h4 class="card-header__title">Add a New Material</h4>
+        </div>
+        <form>
+          <div class="card-body card-form__body">
+            <div class="form-group">
+              <label for="materialName">Material Name</label>
+              <input type="input" class="form-control" id="materialName" placeholder="">
+            </div>
+            <%# <div class="form-group">
+              <label for="materialPrice">Price</label>
+              <input type="text" class="form-control" id="materialPrice" name="materialPrice" />
+            </div> %>
+            <%# <div class="form-group">
+              <label for="materialUnit">Unit</label>
+              <select id="materialUnit"class="form-control">
+                <option selected="">-- Choose One --</option>
+                <option value="AL">Yard</option>
+                <option value="AK">Ton</option>
+              </select>
+            </div> %>
+            <%# <div class="form-group">
+              <label for="truckStatus">Status</label><br>
+              <div class="custom-control custom-checkbox-toggle custom-control-inline mr-1">
+                <input checked="" type="checkbox" id="truckStatus" class="custom-control-input">
+                <label class="custom-control-label" for="truckStatus">Active</label>
+              </div>
+              <label for="truckStatus" class="mb-0">Active</label>
+            </div> %>
+          </div>
+          <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

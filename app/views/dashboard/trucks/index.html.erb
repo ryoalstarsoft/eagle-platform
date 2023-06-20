@@ -1,0 +1,38 @@
+<%- title 'Truck Management' %>
+
+<%= render 'dashboard/page_header' %>
+
+<div class="container-fluid page__container">
+  <div class="row">
+    <div class="col-lg">
+      <div class="card">
+        <div class="card-header card-header-large bg-white">
+          <h4 class="card-header__title">Registered Trucks</h4>
+        </div>
+        <div class="card-header">
+          <form class="form-inline" data-filter="true">
+            <label class="mr-sm-2" for="inlineFormFilterBy">Filter by:</label>
+            <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormFilterBy" placeholder="Truck Number" name="truck_number">
+
+            <label class="sr-only" for="inlineFormRole">Role</label>
+            <select id="inlineFormRole" class="custom-select mb-2 mr-sm-2 mb-sm-0" name="truck_ownership" onChange="$(this).parent().submit()">
+              <option value="all" <%= 'selected' if params[:truck_ownership] != 'private' && params[:truck_ownership] != 'indie' %>>All </option>
+              <option value="private"<%= 'selected' if params[:truck_ownership] == 'private'%>><%= current_vendor.short_name %></option>
+              <option value="indie"<%= 'selected' if params[:truck_ownership] == 'indie' %>>Indie</option>
+            </select>
+
+            <label class="sr-only" for="inlineFormRole">Active</label>
+            <select id="inlineFormRole" class="custom-select mb-2 mr-sm-2 mb-sm-0" name="truck_activity" onChange="$(this).parent().submit()">
+              <option value="all" <%= 'selected' if params[:truck_activity] != 'active' && params[:truck_activity] != 'inactive' %>>All </option>
+              <option value="active"<%= 'selected' if params[:truck_activity] == 'active'%>>Active</option>
+              <option value="inactive"<%= 'selected' if params[:truck_activity] == 'inactive' %>>Inactive</option>
+            </select>
+
+          </form>
+        </div>
+        <%= render 'trucks.table' %>
+        
+      </div>
+    </div>
+  </div>
+</div>

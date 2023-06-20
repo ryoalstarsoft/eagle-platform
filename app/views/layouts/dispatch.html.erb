@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Haul - Dispatch</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <link rel="manifest" href="/packs/manifest.json">
+    <%= stylesheet_link_tag 'dispatch', media: 'all' %>
+    <%= javascript_pack_tag 'dispatch-bundle' %>
+  </head>
+  <body class="<%= @body_class || 'layout-default' %>">
+    <!-- Header Layout -->
+    <div class="mdk-header-layout js-mdk-header-layout">
+
+      <!-- Header -->
+      <div id="header" class="mdk-header js-mdk-header m-0" data-fixed>
+        <div class="mdk-header__content">
+          <%= render 'shared/navbar'%>
+        </div>
+      </div>
+      <!-- // END Header -->
+
+      <!-- Header Layout Content -->
+      <div class="mdk-header-layout__content">
+
+        <div class="mdk-drawer-layout js-mdk-drawer-layout" data-push data-responsive-width="992px">
+          <div class="mdk-drawer-layout__content page">
+            <%= yield %>
+          </div>
+          <!-- // END drawer-layout__content -->
+
+        </div>
+        <!-- // END drawer-layout -->
+
+      </div>
+      <!-- // END header-layout__content -->
+
+    </div>
+    <!-- // END header-layout -->
+
+    <%= content_for :footer %>
+
+    <%= javascript_include_tag 'dispatch', 'data-turbolinks-track': 'reload' %>
+
+    <%= content_for :footer_scripts %>
+  </body>
+
+
+<!--   <body>
+    <div className="root d-flex">
+      <div className="content-wrapper">
+        <%#= render 'dispatch/navbar' %>
+        <%#= render 'dispatch/header' %>
+        <%#= yield %>
+      </div>
+    </div>
+  </body> -->
+</html>

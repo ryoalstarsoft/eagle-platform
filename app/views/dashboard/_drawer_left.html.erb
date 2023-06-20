@@ -1,0 +1,128 @@
+<div class="mdk-drawer js-mdk-drawer" id="default-drawer" data-align="start">
+  <div class="mdk-drawer__content">
+    <div class="sidebar sidebar-light sidebar-left simplebar" data-simplebar>
+      <div class="d-flex align-items-center sidebar-p-a border-bottom">
+        <a href="#" class="flex d-flex align-items-center text-body text-underline-0">
+          <span class="flex d-flex flex-column">
+            <strong><%= current_vendor_name %></strong>
+            <small class="text-muted text-uppercase"><%= current_user.role.titleize %></small>
+          </span>
+        </a>
+        <div class="dropdown ml-auto">
+          <a href="#" data-toggle="dropdown" data-caret="false" class="text-muted"><i class="material-icons">more_vert</i></a>
+          <div class="dropdown-menu dropdown-menu-right">
+            <div class="dropdown-item-text dropdown-item-text--lh">
+              <div><strong><%= current_user.name %></strong></div>
+              <div><%= current_user.email %></div>
+            </div>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="<%= dashboard_path %>">Dashboard</a>
+            <a class="dropdown-item" href="#">My profile</a>
+            <a class="dropdown-item" href="#">Edit account</a>
+            <div class="dropdown-divider"></div>
+            <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-heading sidebar-m-t">Menu</div>
+      <ul class="sidebar-menu">
+        <li class="sidebar-menu-item <%= 'active open' if show_left_drawer %>">
+          <a class="sidebar-menu-button" data-toggle="collapse" href="#dashboards_menu">
+            <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dvr</i>
+            <span class="sidebar-menu-text">Dashboards</span>
+            <span class="ml-auto sidebar-menu-toggle-icon"></span>
+          </a>
+          <ul class="sidebar-submenu collapse show" id="dashboards_menu">
+            <li class="sidebar-menu-item <%= active_nav_markup(:dashboard) %>">
+              <a class="sidebar-menu-button" href="<%= dashboard_path %>">
+                <span class="sidebar-menu-text">My Dashboard</span>
+              </a>
+            </li>
+            <li class="sidebar-menu-item <%= active_nav_markup(:proposals) %>">
+              <a class="sidebar-menu-button" href="<%= dashboard_proposals_path %>">
+                  <span class="sidebar-menu-text">Sales</span>
+              </a>
+            </li>
+            <li class="sidebar-menu-item <%= active_nav_markup(:dispatch) %>">
+              <a class="sidebar-menu-button" href="<%= dispatch_path %>">
+                  <span class="sidebar-menu-text">Dispatch</span>
+              </a>
+            </li>
+          </ul>
+        </li>      
+      </ul>
+
+      <div class="sidebar-heading">Departments</div>
+      <div class="sidebar-block p-0">
+        <ul class="sidebar-menu" id="components_menu">
+          <li class="sidebar-menu-item <%= active_nav_markup(:proposals) %>">
+            <a class="sidebar-menu-button" href="<%= dashboard_proposals_path %>">
+              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">attach_money</i>
+              <span class="sidebar-menu-text">Sales</span>
+            </a>
+          </li>
+          <li class="sidebar-menu-item <%= active_nav_markup(:dispatch) %>">
+            <a class="sidebar-menu-button" href="<%= dispatch_path %>">
+              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">directions</i>
+              <span class="sidebar-menu-text">Dispatch</span>
+            </a>
+          </li>
+          <li class="sidebar-menu-item <%= active_nav_markup(:billing) %>">
+            <a class="sidebar-menu-button" href="<%= dashboard_billing_path %>">
+              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">inbox</i>
+              <span class="sidebar-menu-text">Billing</span>
+              <%# <span class="badge badge-primary ml-auto">NEW</span> %>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar-heading">Management</div>
+      <div class="sidebar-block p-0">
+        <ul class="sidebar-menu" id="components_menu">
+          <li class="sidebar-menu-item <%= active_nav_markup(:trucks) %>">
+            <a class="sidebar-menu-button" href="<%= dashboard_trucks_path %>">
+              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">directions_bus</i>
+              <span class="sidebar-menu-text">Trucks</span>
+            </a>
+          </li>
+          <li class="sidebar-menu-item <%= active_nav_markup(:customers) %>">
+            <a class="sidebar-menu-button" href="<%= dashboard_customers_path %>">
+              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">contacts</i>
+              <span class="sidebar-menu-text">Customers</span>
+            </a>
+          </li>
+          <li class="sidebar-menu-item <%= active_nav_markup(:materials) %>">
+            <a class="sidebar-menu-button" href="<%= dashboard_materials_path %>">
+              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">list</i>
+              <span class="sidebar-menu-text">Materials</span>
+              <%# <span class="badge badge-primary ml-auto">NEW</span> %>
+            </a>
+          </li>
+          <li class="sidebar-menu-item <%= active_nav_markup(:suppliers) %>">
+            <a class="sidebar-menu-button" href="<%= dashboard_suppliers_path %>">
+              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">map</i>
+              <span class="sidebar-menu-text">Suppliers</span>
+              <%# <span class="badge badge-primary ml-auto">NEW</span> %>
+            </a>
+          </li>
+          <li class="sidebar-menu-item <%= active_nav_markup(:users) %>">
+            <a class="sidebar-menu-button" href="<%= dashboard_users_path %>">
+              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">person</i>
+              <span class="sidebar-menu-text">Users</span>
+              <%# <span class="badge badge-primary ml-auto">NEW</span> %>
+            </a>
+          </li>
+          <li class="sidebar-menu-item <%= active_nav_markup(:settings) %>">
+            <a class="sidebar-menu-button" href="<%= dashboard_settings_path %>">
+              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">settings</i>
+              <span class="sidebar-menu-text">Settings</span>
+              <%# <span class="badge badge-primary ml-auto">NEW</span> %>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

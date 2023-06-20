@@ -1,0 +1,29 @@
+<div class="table-responsive border-bottom" data-toggle="lists" data-lists-values='["js-lists-values-employee-name"]'>
+  <table class="table mb-0 thead-border-top-0">
+    <thead>
+      <tr>
+        <th>Supplier</th>
+        <th>State</th>
+        <th>City</th>
+        <th>Phone</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody class="list" id="blah">
+      <% @suppliers.each do |supplier| %>
+        <tr>
+          <td><strong><%= link_to supplier.name, dashboard_supplier_path(supplier)  %></strong></td>
+          <td><%= supplier.state %></td>
+          <td><%= supplier.city %></td>
+          <td><%= f_phone supplier.phone_number %></td>
+          <td></td>
+          <td class="text-right dropdown">
+            <%= render 'dashboard/object_actions', object: supplier %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= render 'shared/pagination', collection: @suppliers %>

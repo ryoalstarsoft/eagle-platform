@@ -1,0 +1,74 @@
+<%- title 'Customer Management' %>
+
+<%= render 'dashboard/page_header' %>
+
+<div class="container-fluid page__container">
+  <div class="row">
+    <div class="col-lg">
+      <div class="card">
+        <div class="card-header card-header-large bg-white">
+          <h4 class="card-header__title">Customer List</h4>
+        </div>
+        <div class="card-header">
+          <form class="form-inline">
+            <div class="search-form search-form--light w-100">
+              <input type="text" class="form-control search w-100" placeholder="Search">
+              <button class="btn" type="button" role="button"><i class="material-icons">search</i></button>
+            </div>
+          </form>
+        </div>
+        <%= render 'customers.table' %>
+        <div class="card-footer text-center">
+          <div class="d-inline-block">
+            <ul class="pagination mb-0">
+              <li class="page-item disabled">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <span aria-hidden="true" class="material-icons">first_page</span>
+                  <span class="sr-only">First</span>
+                </a>
+              </li>
+              <li class="page-item disabled">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <span aria-hidden="true" class="material-icons">chevron_left</span>
+                  <span class="sr-only">Prev</span>
+                </a>
+              </li>
+              <li class="page-item active">
+                <a class="page-link" href="#" aria-label="1">
+                  <span>1</span>
+                </a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="2">
+                  <span>2</span>
+                </a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="3">
+                  <span>3</span>
+                </a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="4">
+                  <span>4</span>
+                </a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                  <span class="sr-only">Next</span>
+                  <span aria-hidden="true" class="material-icons">chevron_right</span>
+                </a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                  <span class="sr-only">Last</span>
+                  <span aria-hidden="true" class="material-icons">last_page</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

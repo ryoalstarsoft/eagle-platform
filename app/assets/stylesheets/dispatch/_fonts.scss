@@ -1,0 +1,15 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
+
+/** Proxima Nova **/
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url(asset-path('dispatch/proxima-nova-alt-regular.eot'));
+  src: url(asset-path('dispatch/proxima-nova-alt-regular.eot?#iefix')) format('embedded-opentype'),
+   url(asset-path('dispatch/proxima-nova-alt-regular.woff')) format('woff'),
+   url(asset-path('dispatch/proxima-nova-alt-regular.ttf')) format('truetype'),
+   url(asset-path('dispatch/proxima-nova-alt-regular.svg#proxima_nova_altregular')) format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

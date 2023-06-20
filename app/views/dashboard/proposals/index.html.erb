@@ -1,0 +1,27 @@
+<%- title 'Sales' %>
+
+<%= render 'dashboard/page_header' %>
+
+<div class="container-fluid page__container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card dashboard-area-tabs" id="dashboard-area-tabs">
+        <div class="card-header p-0 bg-white nav">
+          <div class="row no-gutters flex" role="tablist">
+              <a href="#" data-toggle="tab" role="tab" aria-selected="true" class="dashboard-area-tabs__tab card-body text-center active">
+                <span class="card-header__title m-0">Proposals</span>
+                <span class="text-amount">22</span>
+              </a>
+              <a href="#" data-toggle="tab" role="tab" aria-selected="false" class="dashboard-area-tabs__tab card-body text-center">
+                <span class="card-header__title m-0">Dispatched</span>
+                <span class="text-amount">&dollar;8,942</span>
+              </a>
+          </div>
+        </div>
+        <%= render 'proposals.table' %>
+      </div>
+
+    </div>
+
+  </div>
+</div>

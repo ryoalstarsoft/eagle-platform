@@ -1,0 +1,47 @@
+Installation instructions
+
+Prerequisites:
+ - Postgresql installed and running
+ - Ruby installed
+ - RVM installed
+ - Git installed
+ - Clone repo: git@github.com:GoAstroid/eagle-platform.git
+
+1. create a /.env file:
+    REACT_APP_GOOGLE_MAP_API_KEY=AIzaSyDJCz3W4pW1-F-2PNFYjAkWHut6HX1T3NA
+    REACT_APP_API_DOMAIN=http://localhost:5000/
+    REACT_APP_API_VERSION=v1
+    BYPASS_AUTH_DEVELOPMENT=true
+
+2. create a /Procfile.dev:
+    # You can run these commands in separate shells
+    web: bundle exec puma -C config/puma.rb
+    client: sh -c 'rm -rf public/packs/* || true && bundle exec rake react_on_rails:locale && bin/webpack -w'
+    # client: sh -c 'rm -rf public/packs/* || true && bundle exec rake react_on_rails:locale && bin/webpack-dev-server'
+
+3. create a /config/database.yml:
+    default: &default
+      adapter: postgresql
+      encoding: unicode
+      pool: 5
+      prepared_statement: false
+
+    development:
+      <<: *default
+      database: eazyo-web_development
+
+    test:
+      <<: *default
+      database: eazyo-web_test
+
+4. $ yarn install
+5. $ bundle install
+6. rake db:create
+7. rake db:seed
+8. foreman start -f Procfile.dev
+9. http://localhost:5000
+10: login using:
+    email: demo@haulhq.com
+    password: password1
+
+
